@@ -5,7 +5,10 @@ from . import views
 
 urlpatterns = [
     # path(网络地址正则表达式, 视图函数名),
-    path("users/register",views.register),
+    # path("users/register/",views.register),
+
+    # 类视图路由写法
+    path("users/register/",views.RegisterClassView.as_view()),
 ]
 
 
