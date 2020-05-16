@@ -24,4 +24,20 @@ class RegisterClassView(View):
         return http.HttpResponse('这里是注册页面post请求')
 
 
+# 扩展类
+class CyTest(object):
+    def show(self,request):
+        print('哈哈 我是扩展类')
+
+
+
+class Login(View,CyTest):
+    def get(self,request):
+        self.show(request)
+        return http.HttpResponse('这是登录页面get请求')
+    def post(self,request):
+        self.show(request)
+        return http.HttpResponse('这是登录页面post请求')
+
+
 
