@@ -16,6 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include  #include包含的意思
 
+# 注册自定义路由导包
+from django.urls import register_converter
+from converter import MobileConverter
+# 注册自定义路由 参数一自定义路由文件名 参数路由二别名
+register_converter(MobileConverter,"mobile")
+
 # 工程总路由
 urlpatterns = [
     path('admin/', admin.site.urls),

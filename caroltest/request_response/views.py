@@ -29,3 +29,24 @@ class FormDataParamView(View):
         return http.HttpResponse('表单类型请求体参数：%s--%s' % (username, password))
 
 
+
+class URLParam1View(View):
+    def get(self,request,num):
+        print('提取的数据是：',num)
+        return  http.HttpResponse('这是一个提取URL参数页面,数据是%s:' % num)
+
+class URLParam2View(View):
+    def get(self,request,phone_num):
+        print('提取的数据是：',phone_num)
+        return  http.HttpResponse('这是一个提取URL参数页面,数据是%s:' % phone_num)
+
+
+
+
+
+
+
+
+
+
+
