@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 
 # Create your views here.
 from django.views import View
@@ -60,7 +60,11 @@ class JsonTest(View):
         return http.JsonResponse(datalist,safe=False)
 
 
+class RedirectTest(View):
+    def get(self,request):
+        return redirect('/index/')
 
 
-
-
+class Index(View):
+    def get(self,request):
+        return http.HttpResponse('首页')
