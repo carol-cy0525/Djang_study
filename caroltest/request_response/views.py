@@ -4,6 +4,7 @@ from django.shortcuts import render
 from django.views import View
 from django import http
 
+
 class QSParamView(View):
     """测试提取查询字符串参数
         http://127.0.0.1:8000/querystring/?name=zxc&age=18
@@ -42,8 +43,21 @@ class URLParam2View(View):
 
 
 
+class HeadersParamView(View):
+    """测试提取请求头参数"""
+    def get(self,request):
+        ret = request.META.get('CONTENT_TYPE')
+        print(ret)
+        return http.HttpResponse('ok')
 
 
+class JsonTest(View):
+    def get(self,request):
+        data = {"name":"carol","age":18}
+        # return http.JsonResponse(data)
+
+        datalist = [1, 2, 3]
+        return http.JsonResponse(datalist,safe=False)
 
 
 
