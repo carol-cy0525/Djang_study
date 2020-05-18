@@ -13,5 +13,5 @@ urlpatterns = [
     path('jsontest/',views.JsonTest.as_view()),
 
     path('redirecttest/',views.RedirectTest.as_view()),
-    path('index/',views.Index.as_view()),
+    path('index/',views.Index.as_view(),name='index'),
 ]

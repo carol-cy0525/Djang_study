@@ -29,5 +29,5 @@ urlpatterns = [
     # 将users子应用里的路由加到总路由
     # path('',include('子应用.urls')),
     path('',include('users.urls')),
-    path('',include('request_response.urls')),
+    path('',include(('request_response.urls', 'request_response'), namespace='request_response')),
 ]

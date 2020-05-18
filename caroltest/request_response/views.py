@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,reverse
 
 # Create your views here.
 from django.views import View
@@ -62,8 +62,8 @@ class JsonTest(View):
 
 class RedirectTest(View):
     def get(self,request):
-        return redirect('/index/')
-
+        # return redirect('/index/')
+        return redirect(reverse('request_response:index'))  #路由反向解析
 
 class Index(View):
     def get(self,request):
