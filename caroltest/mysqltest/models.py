@@ -38,3 +38,37 @@ class HeroInfo(models.Model):
 
     def __str__(self):
         return self.hname
+
+
+# ============以下代码测试玩==========================
+class StuInfo(models.Model):
+    SEX_CHOICES = ((0, '男'), (1, '女'))
+    cname = models.CharField(max_length=20, verbose_name='姓名')
+    cage = models.IntegerField(default=0, verbose_name='年龄')
+    csex = models.SmallIntegerField(choices=SEX_CHOICES, default=0, verbose_name='性别')
+
+    class Meta:
+        db_table = 'tb_stu'
+
+    def __str__(self):
+        return self.cname
+
+
+class ScoreInfo(models.Model):
+    sstuname = models.ForeignKey(StuInfo, on_delete=models.CASCADE, verbose_name='分数对应的人')
+    ssubject = models.CharField(max_length=30, verbose_name='学科')
+    sscore = models.IntegerField(max_length=20, default=0, verbose_name='分数')
+
+    class Meta:
+        db_table = 'tb_score'
+
+    def __str__(self):
+        return self.sstuname
+
+
+
+
+
+
+
+
