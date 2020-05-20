@@ -30,4 +30,5 @@ urlpatterns = [
     # path('',include('子应用.urls')),
     path('',include('users.urls')),
     path('',include(('request_response.urls', 'request_response'), namespace='request_response')),
+    path('',include('mysqltest.urls')),
 ]
